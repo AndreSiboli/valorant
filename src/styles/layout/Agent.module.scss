@@ -1,0 +1,82 @@
+@use "@/styles/_dirs/variables" as var;
+@use "@/styles/_dirs/mixins" as mix;
+
+.agent {
+  display: block;
+  width: 100%;
+  height: 350px;
+  position: relative;
+  overflow: hidden;
+
+  &_background {
+    position: absolute;
+    inset: 0;
+  }
+
+  &_image {
+    width: 100%;
+    height: 90%;
+    position: relative;
+    inset: 0;
+    z-index: 2;
+  }
+
+  &_title {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    transition: 0.15s ease-in-out;
+
+    p {
+      color: #fff;
+      font-size: 1.15em;
+    }
+  }
+
+  &_role {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 15px;
+    aspect-ratio: 1/1;
+    transition: 0.15s ease-in-out;
+  }
+
+  @include mix.OnlyPc {
+    &_background {
+      filter: brightness(0.3);
+      transition: filter 0.15s ease-in-out;
+    }
+
+    &_image {
+      filter: brightness(0.5);
+      transform: scale(1);
+      transition: filter 0.15s ease-in-out, transform 0.15s ease-in-out;
+    }
+
+    &_background_name {
+      opacity: 0;
+      transition: 0.15s ease-in-out;
+    }
+
+    &:hover {
+      .agent_image,
+      .agent_background {
+        filter: brightness(1);
+      }
+
+      .agent_image {
+        transform: scale(1.1);
+      }
+
+      .agent_background_name {
+        opacity: 1;
+      }
+
+      .agent_title,
+      .agent_role {
+        opacity: 0;
+      }
+    }
+  }
+}

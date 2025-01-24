@@ -1,0 +1,13 @@
+@use "@/styles/_dirs/variables" as var;
+@use "@/styles/_dirs/mixins" as mix;
+
+.header{
+    display: flex;
+    justify-content: center;
+
+    &_logo{
+        width: 75px;
+        aspect-ratio: 1/1;
+        position: relative;
+    }
+}

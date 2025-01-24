@@ -1,0 +1,28 @@
+@use "@/styles/_dirs/variables" as var;
+
+@mixin OnlyPc {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
+
+@mixin OnlyMobile {
+  @media (hover: none) and (pointer: coarse) {
+    @content;
+  }
+}
+
+@mixin Scroll {
+  &::-webkit-scrollbar {
+    max-width: 10px;
+    background: #000;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var.$neutral_color_100;
+
+    &:hover {
+      background: #fff8;
+    }
+  }
+}

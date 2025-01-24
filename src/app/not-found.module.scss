@@ -1,0 +1,36 @@
+@use "@/styles/_dirs/variables" as var;
+@use "@/styles/_dirs/mixins" as mix;
+
+.not_found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  min-height: 100vh;
+  color: #fff;
+
+  a{
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+
+  &_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+
+    h1 {
+      font-size: clamp(2.5em, 2em + 10vw, 8em);
+    }
+
+    p{
+        margin-top: .5em;
+    }
+  }
+}

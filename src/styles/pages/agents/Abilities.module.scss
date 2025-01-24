@@ -1,0 +1,79 @@
+@use "@/styles/_dirs/variables" as var;
+@use "@/styles/_dirs/mixins" as mix;
+
+.abilities {
+  display: flex;
+
+  &_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5em 1em;
+
+    @media (max-width: 1020px) {
+      padding: 1em;
+      padding-bottom: 5em;
+    }
+  }
+
+  &_icons {
+    display: flex;
+    gap: 1em;
+    color: #fff;
+    padding: 2em;
+
+    .icon {
+      position: relative;
+      width: 50px;
+      aspect-ratio: 1/1;
+      cursor: pointer;
+      filter: brightness(0.5);
+      transition: 0.25s ease-in-out;
+
+      &.selected {
+        filter: brightness(1);
+      }
+    }
+  }
+
+  &_ability {
+    position: relative;
+    max-width: 500px;
+    width: 100%;
+    color: #fff;
+    min-height: 175px;
+
+    .ability {
+      position: absolute;
+      transform: translate(-10px, 0);
+      transition: opacity 1s ease-in-out, z-index 0.5s ease-in-out,
+        transform 0.5s ease-in-out;
+      text-align: center;
+
+      &.visible {
+        opacity: 1;
+        z-index: 2;
+        transform: translate(0px, 0);
+        visibility: visible;
+      }
+
+      &.invisible {
+        opacity: 0;
+        z-index: 1;
+        visibility: hidden;
+        transform: translate(10px, 0);
+        transition: opacity 0.1s ease-in-out, z-index 0.5s ease-in-out,
+          transform 0.5s ease-in-out;
+      }
+
+      &_name {
+        color: var.$secundary_color;
+      }
+
+      &_description {
+        margin-top: 1em;
+        font-family: var(--font-rubik-glitch);
+      }
+    }
+  }
+}
